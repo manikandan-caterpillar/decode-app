@@ -52,8 +52,11 @@ export const DecodeData = () => {
                         helperText={formik.touched.encodeData && formik.errors.encodeData}
                     />
                     <br /><br />
-                    <Button color="primary" variant="contained" fullWidth type="submit">
-                        Submit
+                    <Button color="warning" variant="contained" type="submit">
+                        Reset
+                    </Button>
+                    <Button color="primary" variant="contained" type="submit">
+                        Decode
                     </Button>
                 </form>
                 {decodeResult &&
