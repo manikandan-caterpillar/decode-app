@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/decode-app/static/css/main.89457fab.css",
-    "main.js": "/decode-app/static/js/main.5de5b9ba.js",
+    "main.js": "/decode-app/static/js/main.125fa8e3.js",
     "static/js/787.e514de6e.chunk.js": "/decode-app/static/js/787.e514de6e.chunk.js",
     "index.html": "/decode-app/index.html",
     "main.89457fab.css.map": "/decode-app/static/css/main.89457fab.css.map",
-    "main.5de5b9ba.js.map": "/decode-app/static/js/main.5de5b9ba.js.map",
+    "main.125fa8e3.js.map": "/decode-app/static/js/main.125fa8e3.js.map",
     "787.e514de6e.chunk.js.map": "/decode-app/static/js/787.e514de6e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.89457fab.css",
-    "static/js/main.5de5b9ba.js"
+    "static/js/main.125fa8e3.js"
   ]
 }
