@@ -11,7 +11,7 @@ package-lock.json
 yarn.lock
 # production
 /build
-
+images
 # misc
 .DS_Store
 .env.local
