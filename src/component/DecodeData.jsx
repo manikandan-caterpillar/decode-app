@@ -53,7 +53,9 @@ export const DecodeData = () => {
                     />
                     <br /><br />
                     <Stack direction="row" spacing={2}>
-                        <Button color="warning" variant="contained" type="submit" align="right">
+                        <Button color="warning" variant="contained" type="button" align="right"
+                            onClick={() => formik.resetForm()}
+                        >
                             Reset
                         </Button>
                         <Button color="primary" variant="contained" type="submit">
