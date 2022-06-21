@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { Button, TextField } from '@mui/material';
-
+import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -52,12 +52,14 @@ export const DecodeData = () => {
                         helperText={formik.touched.encodeData && formik.errors.encodeData}
                     />
                     <br /><br />
-                    <Button color="warning" variant="contained" type="submit">
-                        Reset
-                    </Button>
-                    <Button color="primary" variant="contained" type="submit">
-                        Decode
-                    </Button>
+                    <Stack direction="row" spacing={2}>
+                        <Button color="warning" variant="contained" type="submit" align="right">
+                            Reset
+                        </Button>
+                        <Button color="primary" variant="contained" type="submit">
+                            Decode
+                        </Button>
+                    </Stack>
                 </form>
                 {decodeResult &&
                     <>
