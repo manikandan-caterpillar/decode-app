@@ -14,9 +14,9 @@ const NavCard = () => (
         <Stack alignItems="center" spacing={2.5}>
             <CardMedia component="img" image={avatar} sx={{ width: 112 }} />
             <Stack alignItems="center">
-                <Typography variant="h5">Mantis Pro</Typography>
+                <Typography variant="h5">Dev UI</Typography>
                 <Typography variant="h6" color="secondary">
-                    Checkout pro features
+                    Dev Unilities
                 </Typography>
             </Stack>
         </Stack>
