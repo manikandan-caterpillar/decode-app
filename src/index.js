@@ -6,9 +6,10 @@ import { BrowserRouter } from 'react-router-dom';
 // third-party
 import { Provider as ReduxProvider } from 'react-redux';
 // project import
-import App from './App';
 import { store } from './store';
 import reportWebVitals from './reportWebVitals';
+import 'simplebar/dist/simplebar.min.css';
+import App from './App';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

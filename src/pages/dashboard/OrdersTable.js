@@ -9,7 +9,7 @@ import { Box, Link, Stack, Table, TableBody, TableCell, TableContainer, TableHea
 import NumberFormat from 'react-number-format';
 
 // project import
-import Dot from 'components/@extended/Dot';
+import Dot from '../../components/@extended/Dot';
 
 function createData(trackingNo, name, fat, carbs, protein) {
     return { trackingNo, name, fat, carbs, protein };

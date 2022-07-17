@@ -36,3 +36,5 @@ rm -rf coverage
 
 
 Template from: https://mui.com/store/#populars / https://mantisdashboard.io/free/dashboard/default
+
+Doc: https://codedthemes.gitbook.io/next-angular/mantis-react

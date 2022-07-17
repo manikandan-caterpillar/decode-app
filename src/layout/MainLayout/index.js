@@ -9,11 +9,11 @@ import { Box, Toolbar, useMediaQuery } from '@mui/material';
 // project import
 import Drawer from './Drawer';
 import Header from './Header';
-import navigation from 'menu-items';
-import Breadcrumbs from 'components/@extended/Breadcrumbs';
+import navigation from '../../menu-items';
+import Breadcrumbs from '../../components/@extended/Breadcrumbs';
 
 // types
-import { openDrawer } from 'store/reducers/menu';
+import { openDrawer } from '../../store/reducers/menu';
 
 // ==============================|| MAIN LAYOUT ||============================== //
 
