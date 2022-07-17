@@ -1,11 +1,16 @@
-import React from 'react';
-import Container from '@mui/material/Container';
-import { DecodeData } from './component';
+// project import
+import Routes from 'routes';
+import ThemeCustomization from 'themes';
+import ScrollTop from './components/ScrollTop';
 
-export default function App() {
-  return (
-    <Container>
-      <DecodeData />
-    </Container>
-  );
-}
+// ==============================|| APP - THEME, ROUTER, LOCAL  ||============================== //
+
+const App = () => (
+  <ThemeCustomization>
+    <ScrollTop>
+      <Routes />
+    </ScrollTop>
+  </ThemeCustomization>
+);
+
+export default App;
