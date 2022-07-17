@@ -10,9 +10,6 @@ import App from './App';
 import { store } from './store';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
