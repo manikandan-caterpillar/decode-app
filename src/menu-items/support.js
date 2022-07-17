@@ -20,15 +20,6 @@ const support = {
             type: 'item',
             url: '/sample-page',
             icon: icons.ChromeOutlined
-        },
-        {
-            id: 'documentation',
-            title: 'Documentation',
-            type: 'item',
-            url: 'https://codedthemes.gitbook.io/mantis-react/',
-            icon: icons.QuestionOutlined,
-            external: true,
-            target: true
         }
     ]
 };
