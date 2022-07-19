@@ -1,19 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme';
+import { StrictMode } from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+// third-party
+import { Provider as ReduxProvider } from 'react-redux';
+// project import
+import { store } from './store';
+import reportWebVitals from './reportWebVitals';
+import 'simplebar/dist/simplebar.min.css';
+import App from './App';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <App />
-  </ThemeProvider>
+  <StrictMode>
+    <ReduxProvider store={store}>
+      <BrowserRouter basename="/">
+        <App />
+      </BrowserRouter>
+    </ReduxProvider>
+  </StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
