@@ -6,5 +6,5 @@ export const validationSchema = Joi.object({
     //     "string.empty": `firstName cannot be an empty field`,
     //     "any.required": `firstName is a required.`,
     // }),
-    encodeData: Joi.string().required(),
+    encodeData: Joi.string().min(3).required(),
 });

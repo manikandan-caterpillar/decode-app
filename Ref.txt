@@ -7,7 +7,7 @@ https://www.npmjs.com/package/superstruct
 https://docs.superstructjs.org/
 https://ajv.js.org/
 
-
+https://stackoverflow.com/questions/48720942/node-js-joi-how-to-display-a-custom-error-messages
 
 
 

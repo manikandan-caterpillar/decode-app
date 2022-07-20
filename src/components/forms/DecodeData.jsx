@@ -5,6 +5,10 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
+import { InputAdornment } from '@mui/material';
+// assets
+import { SearchOutlined } from '@ant-design/icons';
+
 import { useForm, Controller } from "react-hook-form";
 import { joiResolver } from '@hookform/resolvers/joi';
 import { validationSchema } from './validationSchema';
@@ -13,21 +17,19 @@ import base64 from 'base-64';
 export const DecodeData = () => {
     const [decodeResult, setDecodeResult] = useState(null);
     const [error, setError] = useState(null);
-
     const {
         control,
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm({
         resolver: joiResolver(validationSchema),
     });
-    const [data, setData] = useState("");
     console.log(errors);
 
     const onSubmit = (values) => {
         const { encodeData } = values;
-        console.log(encodeData);
         const data = base64.decode(encodeData);
         try {
             const encodeJSON = JSON.parse(data);
@@ -51,9 +53,26 @@ export const DecodeData = () => {
 
                     <Controller
                         name="encodeData"
-                        label="Encode Data"
                         control={control}
-                        render={({ field }) => <TextField {...field} />}
+                        render={({ field }) =>
+                            <TextField
+                                {...field}
+                                fullWidth
+                                error={errors.encodeData?.message}
+                                helperText={errors.encodeData?.message}
+                                size="small"
+                                id="encodeData"
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start" sx={{ mr: -0.5 }}>
+                                            <SearchOutlined />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                                autoComplete={"off"}
+                                placeholder="Encode Data"
+                            />
+                        }
                     />
 
                     {/* <TextField
@@ -68,9 +87,7 @@ export const DecodeData = () => {
                     /> */}
                     <br /><br />
                     <Stack direction="row" spacing={2}>
-                        <Button color="warning" variant="contained" type="button" align="right"
-                            onClick={() => null}
-                        >
+                        <Button color="warning" variant="contained" type="button" onClick={()=> reset({encodeData: ""})} align="right">
                             Reset
                         </Button>
                         <Button color="primary" variant="contained" type="submit">
