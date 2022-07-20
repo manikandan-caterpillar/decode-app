@@ -49,8 +49,8 @@ export const ConvertCase = () => {
     return (
         <Container maxWidth="100%">
             <Box sx={{ m: 1 }}>
-                <Typography variant="h4" component="h1" gutterBottom>
-                    Base64 Data Handled
+                <Typography variant="h5" component="h5">
+                    Simply enter your text and choose the case you want to convert it to.
                 </Typography>
                 <form noValidate onSubmit={handleSubmit((data) => onSubmit(data))}>
 
@@ -61,33 +61,17 @@ export const ConvertCase = () => {
                             <TextField
                                 {...field}
                                 fullWidth
+                                multiline
+                                rows={5}
                                 error={errors.encodeData?.message}
                                 helperText={errors.encodeData?.message}
                                 size="small"
                                 id="encodeData"
-                                InputProps={{
-                                    startAdornment: (
-                                        <InputAdornment position="start" sx={{ mr: -0.5 }}>
-                                            <SearchOutlined />
-                                        </InputAdornment>
-                                    ),
-                                }}
                                 autoComplete={"off"}
-                                placeholder="Encode Data"
+                                placeholder="Type or paste your content here"
                             />
                         }
                     />
-
-                    {/* <TextField
-                        fullWidth
-                        id="encodeData"
-                        name="encodeData"
-                        label="Encode Data"
-                        value={formik.values.encodeData}
-                        onChange={formik.handleChange}
-                        error={formik.touched.encodeData && Boolean(formik.errors.encodeData)}
-                        helperText={formik.touched.encodeData && formik.errors.encodeData}
-                    /> */}
                     <br /><br />
                     <Stack direction="row" spacing={2}>
                         <Button color="warning" variant="contained" type="button" onClick={() => reset({ encodeData: "" })} align="right">
@@ -98,6 +82,21 @@ export const ConvertCase = () => {
                         </Button>
                     </Stack>
                 </form>
+                <br />
+                <br />
+                <TextField
+                    fullWidth
+                    multiline
+                    rows={5}
+                    error={errors.encodeData?.message}
+                    helperText={errors.encodeData?.message}
+                    size="small"
+                    autoComplete={"off"}
+                    placeholder="Result"
+                    inputProps={
+                        { readOnly: true, }
+                    }
+                />
                 {decodeResult &&
                     <>
                         <br />
