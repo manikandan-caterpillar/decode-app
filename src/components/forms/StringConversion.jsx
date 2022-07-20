@@ -17,6 +17,7 @@ export function StringConversion() {
         <>
             <form onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
                 <input {...register("firstName")} placeholder="First name" />
+                {errors.firstName?.message && <p>{errors.firstName?.message}</p>}
                 <select {...register("category")}>
                     <option value="">Select...</option>
                     <option value="A">Option A</option>
