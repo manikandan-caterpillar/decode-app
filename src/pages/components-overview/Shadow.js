@@ -7,7 +7,7 @@ import { Grid, Stack, Typography } from '@mui/material';
 // project import
 import MainCard from '../../components/MainCard';
 import ComponentSkeleton from './ComponentSkeleton';
-import { StringConversion } from '../../components/forms';
+import { StringConversion, DecodeData } from '../../components/forms';
 
 // ===============================|| SHADOW BOX ||=============================== //
 
@@ -55,7 +55,7 @@ const ComponentShadow = () => {
     return (
         <ComponentSkeleton>
             <Grid container spacing={3}>
-                <StringConversion />
+                <DecodeData />
             </Grid>
         </ComponentSkeleton>
     );
