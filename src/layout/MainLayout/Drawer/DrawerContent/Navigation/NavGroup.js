@@ -10,7 +10,7 @@ import NavItem from './NavItem';
 // ==============================|| NAVIGATION - LIST GROUP ||============================== //
 
 const NavGroup = ({ item }) => {
-    const menu = useSelector((state) => state.menu);
+    const menu = useSelector((state) => state.manageApplication);
     const { drawerOpen } = menu;
 
     const navCollapse = item.children?.map((menuItem) => {
