@@ -3,7 +3,7 @@ import { MANAGE_APPLICATION } from "../constants";
 const initialState = {
     openItem: ['dashboard'],
     openComponent: 'buttons',
-    drawerOpen: false,
+    drawerOpen: true,
     componentDrawerOpen: true,
 };
 
