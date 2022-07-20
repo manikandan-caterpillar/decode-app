@@ -15,7 +15,8 @@ const HeaderContent = () => {
 
     return (
         <>
-            {!matchesXs && <Search />}
+            {/* {!matchesXs && <Search />} */}
+            {/* TODO */}
             {matchesXs && <Box sx={{ width: '100%', ml: 1 }} />}
 
             {/* <Notification /> */}

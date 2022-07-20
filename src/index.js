@@ -4,9 +4,11 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 // third-party
-import { Provider as ReduxProvider } from 'react-redux';
+import { Provider as StoreProvider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 // project import
-import { store } from './store';
+import { rootReduxStore, persistor } from './redux/store';
+
 import reportWebVitals from './reportWebVitals';
 import 'simplebar/dist/simplebar.min.css';
 import App from './App';
@@ -15,11 +17,13 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <ReduxProvider store={store}>
-      <BrowserRouter basename="/">
-        <App />
-      </BrowserRouter>
-    </ReduxProvider>
+    <StoreProvider store={rootReduxStore}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter basename="/">
+          <App />
+        </BrowserRouter>
+      </PersistGate>
+    </StoreProvider>
   </StrictMode>
 );
 

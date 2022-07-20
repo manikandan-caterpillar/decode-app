@@ -8,14 +8,14 @@ import { useTheme } from '@mui/material/styles';
 import { Avatar, Chip, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
 
 // project import
-import { activeItem } from '../../../../../store/reducers/menu';
+import { activeItem } from '../../../../../redux/actions/applicationAction';
 
 // ==============================|| NAVIGATION - LIST ITEM ||============================== //
 
 const NavItem = ({ item, level }) => {
     const theme = useTheme();
     const dispatch = useDispatch();
-    const menu = useSelector((state) => state.menu);
+    const menu = useSelector((state) => state.manageApplication);
     const { drawerOpen, openItem } = menu;
 
     let itemTarget = '_self';
@@ -29,7 +29,7 @@ const NavItem = ({ item, level }) => {
     }
 
     const itemHandler = (id) => {
-        dispatch(activeItem({ openItem: [id] }));
+        dispatch(activeItem([id]));
     };
 
     const Icon = item.icon;
@@ -44,7 +44,7 @@ const NavItem = ({ item, level }) => {
             .split('/')
             .findIndex((id) => id === item.id);
         if (currentIndex > -1) {
-            dispatch(activeItem({ openItem: [item.id] }));
+            dispatch(activeItem([item.id]));
         }
         // eslint-disable-next-line
     }, []);
