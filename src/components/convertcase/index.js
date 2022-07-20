@@ -22,7 +22,7 @@ export const ConvertCase = () => {
         reset,
     } = useForm({
         defaultValues: {
-            encodeData: 'AA',
+            encodeData: '',
         },
         shouldFocusError: true,
         shouldUnregister: true,
@@ -47,8 +47,8 @@ export const ConvertCase = () => {
     };
 
     return (
-        <Container maxWidth="sm">
-            <Box sx={{ my: 4 }}>
+        <Container maxWidth="100%">
+            <Box sx={{ m: 1 }}>
                 <Typography variant="h4" component="h1" gutterBottom>
                     Base64 Data Handled
                 </Typography>
