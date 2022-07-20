@@ -22,6 +22,9 @@ function Child({ control }) {
 export const ConvertCase = () => {
     const [decodeResult, setDecodeResult] = useState(null);
     const [error, setError] = useState(null);
+    const [actionType, setActionType] = useState('');
+    const [result, setResult] = useState('');
+
     const {
         control,
         register,
@@ -54,13 +57,19 @@ export const ConvertCase = () => {
         }
     };
 
+    const onTextConvert = handleSubmit(values => {
+        const { convertString } = values;
+        // result // actionType
+        setResult(convertString.toLocaleUpperCase());
+    });
+
     return (
         <Container maxWidth="100%">
             <Box sx={{ m: 1 }}>
                 <Typography variant="h5" component="h5">
                     Simply enter your text and choose the case you want to convert it to.
                 </Typography>
-                <form noValidate onSubmit={handleSubmit((data) => onSubmit(data))}>
+                <form noValidate onSubmit={handleSubmit(onSubmit)}>
 
                     <Controller
                         name="convertString"
@@ -82,11 +91,20 @@ export const ConvertCase = () => {
                     />
                     <Child control={control} />
                     <Stack direction="row" spacing={2}>
-                        <Button color="warning" variant="contained" type="button" onClick={() => reset({ convertString: "" })} align="right">
+                        <Button color="warning" variant="contained" type="button" onClick={() => {
+                            reset({ convertString: "" });
+                            setActionType('');
+                            setResult('');
+                        }} align="right">
                             Reset
                         </Button>
-                        <Button color="primary" variant="contained" type="submit">
-                            Decode
+                        <Button color="primary" variant="contained" type="button"
+                            onClick={event => {
+                                setActionType('UPPER_CASE');
+                                onTextConvert(event);
+                            }}
+                        >
+                            UPPER CASE
                         </Button>
                     </Stack>
                 </form>
@@ -99,6 +117,7 @@ export const ConvertCase = () => {
                     size="small"
                     autoComplete={"off"}
                     placeholder="Result"
+                    value={result}
                     inputProps={
                         { readOnly: true, }
                     }
