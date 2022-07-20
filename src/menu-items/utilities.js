@@ -33,10 +33,10 @@ const utilities = {
             icon: icons.FontSizeOutlined
         },
         {
-            id: 'util-shadow',
-            title: 'Shadow',
+            id: 'util-textConvert',
+            title: 'Text Convert',
             type: 'item',
-            url: '/shadow',
+            url: '/text-convert',
             icon: icons.BarcodeOutlined,
             breadcrumbs: true,
         }

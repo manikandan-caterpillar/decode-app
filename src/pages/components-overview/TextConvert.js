@@ -11,26 +11,26 @@ import { ConvertCase } from '../../components/convertcase';
 
 // ===============================|| SHADOW BOX ||=============================== //
 
-function ShadowBox({ shadow }) {
+function ShadowBox({ textConvert }) {
     return (
-        <MainCard border={false} sx={{ boxShadow: shadow }}>
+        <MainCard border={false} sx={{ boxShadow: textConvert }}>
             <Stack spacing={1} justifyContent="center" alignItems="center">
                 <Typography variant="h6">boxShadow</Typography>
-                <Typography variant="subtitle1">{shadow}</Typography>
+                <Typography variant="subtitle1">{textConvert}</Typography>
             </Stack>
         </MainCard>
     );
 }
 
 ShadowBox.propTypes = {
-    shadow: PropTypes.string.isRequired
+    textConvert: PropTypes.string.isRequired
 };
 
 // ===============================|| CUSTOM - SHADOW BOX ||=============================== //
 
-function CustomShadowBox({ shadow, label, color, bgcolor }) {
+function CustomShadowBox({ textConvert, label, color, bgcolor }) {
     return (
-        <MainCard border={false} sx={{ bgcolor: bgcolor || 'inherit', boxShadow: shadow }}>
+        <MainCard border={false} sx={{ bgcolor: bgcolor || 'inherit', boxShadow: textConvert }}>
             <Stack spacing={1} justifyContent="center" alignItems="center">
                 <Typography variant="subtitle1" color={color}>
                     {label}
@@ -41,7 +41,7 @@ function CustomShadowBox({ shadow, label, color, bgcolor }) {
 }
 
 CustomShadowBox.propTypes = {
-    shadow: PropTypes.string.isRequired,
+    textConvert: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     bgcolor: PropTypes.string.isRequired

@@ -6,10 +6,18 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { InputAdornment } from '@mui/material';
 import { SearchOutlined } from '@ant-design/icons';
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, useWatch } from "react-hook-form";
 import { joiResolver } from '@hookform/resolvers/joi';
 import { validationSchema } from './validationSchema';
 import base64 from 'base-64';
+
+function Child({ control }) {
+    const convertString = useWatch({
+        control,
+        name: "convertString",
+    });
+    return <p>Watch: {convertString}</p>;
+}
 
 export const ConvertCase = () => {
     const [decodeResult, setDecodeResult] = useState(null);
@@ -22,7 +30,7 @@ export const ConvertCase = () => {
         reset,
     } = useForm({
         defaultValues: {
-            encodeData: '',
+            convertString: '',
         },
         shouldFocusError: true,
         shouldUnregister: true,
@@ -32,8 +40,8 @@ export const ConvertCase = () => {
     console.log(errors);
 
     const onSubmit = (values) => {
-        const { encodeData } = values;
-        const data = base64.decode(encodeData);
+        const { convertString } = values;
+        const data = base64.decode(convertString);
         try {
             const encodeJSON = JSON.parse(data);
             if (typeof (encodeJSON) === 'object') {
@@ -55,26 +63,26 @@ export const ConvertCase = () => {
                 <form noValidate onSubmit={handleSubmit((data) => onSubmit(data))}>
 
                     <Controller
-                        name="encodeData"
+                        name="convertString"
                         control={control}
                         render={({ field }) =>
                             <TextField
-                                {...field}
                                 fullWidth
                                 multiline
                                 rows={5}
-                                error={errors.encodeData?.message}
-                                helperText={errors.encodeData?.message}
+                                error={errors.convertString?.message}
+                                helperText={errors.convertString?.message}
                                 size="small"
-                                id="encodeData"
+                                id="convertString"
                                 autoComplete={"off"}
                                 placeholder="Type or paste your content here"
+                                {...field}
                             />
                         }
                     />
-                    <br /><br />
+                    <Child control={control} />
                     <Stack direction="row" spacing={2}>
-                        <Button color="warning" variant="contained" type="button" onClick={() => reset({ encodeData: "" })} align="right">
+                        <Button color="warning" variant="contained" type="button" onClick={() => reset({ convertString: "" })} align="right">
                             Reset
                         </Button>
                         <Button color="primary" variant="contained" type="submit">
@@ -88,8 +96,6 @@ export const ConvertCase = () => {
                     fullWidth
                     multiline
                     rows={5}
-                    error={errors.encodeData?.message}
-                    helperText={errors.encodeData?.message}
                     size="small"
                     autoComplete={"off"}
                     placeholder="Result"
