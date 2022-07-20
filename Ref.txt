@@ -1,3 +1,20 @@
 
 
 https://www.npmjs.com/package/base64url
+https://convertcase.net/
+
+https://www.npmjs.com/package/superstruct
+https://docs.superstructjs.org/
+https://ajv.js.org/
+
+
+
+
+
+
+
+
+
+
+
+

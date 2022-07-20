@@ -1,1 +1,1 @@
-import { StringConversion } from './StringConversion';
+export { StringConversion } from './StringConversion';

@@ -13,10 +13,12 @@
     "@mui/material": "^5.9.1",
     "@mui/styles": "^5.9.1",
     "@reduxjs/toolkit": "^1.8.3",
+    "@hookform/resolvers": "^2.9.6",
     "base-64": "^1.0.0",
     "moment": "^2.29.4",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
+    "joi": "^17.6.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
@@ -32,8 +34,7 @@
     "web-vitals": "^2.1.4",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.4.1",
-    "yup": "^0.32.11"
+    "redux-thunk": "^2.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
