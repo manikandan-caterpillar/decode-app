@@ -10,11 +10,12 @@ export default function Button(theme) {
     return {
         MuiButton: {
             defaultProps: {
-                disableElevation: true
+                disableElevation: false,
             },
             styleOverrides: {
                 root: {
-                    fontWeight: 400
+                    fontWeight: 400,
+                    textTransform: 'unset',
                 },
                 contained: {
                     ...disabledStyle

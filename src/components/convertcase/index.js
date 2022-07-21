@@ -3,7 +3,7 @@ import { Button, TextField } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Box, Grid } from '@mui/material';
 import { InputAdornment } from '@mui/material';
 import { SearchOutlined } from '@ant-design/icons';
 import { useForm, Controller, useWatch } from "react-hook-form";
@@ -59,8 +59,16 @@ export const ConvertCase = () => {
 
     const onTextConvert = handleSubmit(values => {
         const { convertString } = values;
-        // result // actionType
-        setResult(convertString.toLocaleUpperCase());
+        switch (actionType) {
+            case "UPPER_CASE":
+                setResult(convertString.toLocaleUpperCase());
+                break;
+            case "LOWER_CASE":
+                setResult(convertString.toLocaleLowerCase());
+                break;
+            default:
+                return false;
+        }
     });
 
     return (
@@ -70,25 +78,34 @@ export const ConvertCase = () => {
                     Simply enter your text and choose the case you want to convert it to.
                 </Typography>
                 <form noValidate onSubmit={handleSubmit(onSubmit)}>
-
-                    <Controller
-                        name="convertString"
-                        control={control}
-                        render={({ field }) =>
-                            <TextField
-                                fullWidth
-                                multiline
-                                rows={5}
-                                error={errors.convertString?.message}
-                                helperText={errors.convertString?.message}
-                                size="small"
-                                id="convertString"
-                                autoComplete={"off"}
-                                placeholder="Type or paste your content here"
-                                {...field}
+                    <Grid container spacing={2}>
+                        <Grid item xs={11}>
+                            <Controller
+                                name="convertString"
+                                control={control}
+                                render={({ field }) =>
+                                    <TextField
+                                        fullWidth
+                                        multiline
+                                        rows={5}
+                                        error={errors.convertString?.message}
+                                        helperText={errors.convertString?.message}
+                                        size="small"
+                                        id="convertString"
+                                        autoComplete={"off"}
+                                        placeholder="Type or paste your content here"
+                                        {...field}
+                                    />
+                                }
                             />
-                        }
-                    />
+                        </Grid>
+                        <Grid item xs={1}>
+                            <Button sx={{ height: '100%' }} color="warning" variant="contained" type="button" align="right">
+                                +
+                            </Button>
+                        </Grid>
+                    </Grid>
+
                     <Child control={control} />
                     <Stack direction="row" spacing={2}>
                         <Button color="warning" variant="contained" type="button" onClick={() => {
@@ -96,32 +113,50 @@ export const ConvertCase = () => {
                             setActionType('');
                             setResult('');
                         }} align="right">
-                            Reset
+                            Clear All
                         </Button>
                         <Button color="primary" variant="contained" type="button"
-                            onClick={event => {
+                            onClick={(event) => {
                                 setActionType('UPPER_CASE');
                                 onTextConvert(event);
                             }}
                         >
                             UPPER CASE
                         </Button>
+                        <Button color="primary" variant="contained" type="button"
+                            onClick={(event) => {
+                                setActionType('LOWER_CASE');
+                                onTextConvert(event);
+                            }}
+                        >
+                            lower case
+                        </Button>
                     </Stack>
                 </form>
                 <br />
                 <br />
-                <TextField
-                    fullWidth
-                    multiline
-                    rows={5}
-                    size="small"
-                    autoComplete={"off"}
-                    placeholder="Result"
-                    value={result}
-                    inputProps={
-                        { readOnly: true, }
-                    }
-                />
+                <Grid container spacing={2}>
+                    <Grid item xs={11}>
+                        <TextField
+                            fullWidth
+                            multiline
+                            rows={5}
+                            size="small"
+                            autoComplete={"off"}
+                            placeholder="Result"
+                            value={result}
+                            inputProps={
+                                { readOnly: true, }
+                            }
+                        />
+                    </Grid>
+                    <Grid item xs={1}>
+                        <Button sx={{ height: '100%' }} color="warning" variant="contained" type="button" align="right">
+                            +
+                        </Button>
+                    </Grid>
+                </Grid>
+
                 {decodeResult &&
                     <>
                         <br />
