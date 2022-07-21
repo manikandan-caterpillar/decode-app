@@ -25,7 +25,7 @@ const MainCard = forwardRef(
             divider = true,
             elevation,
             secondary,
-            shadow,
+            textConvert,
             sx = {},
             title,
             codeHighlight,
@@ -46,9 +46,9 @@ const MainCard = forwardRef(
                     border: border ? '1px solid' : 'none',
                     borderRadius: 2,
                     borderColor: theme.palette.mode === 'dark' ? theme.palette.divider : theme.palette.grey.A800,
-                    boxShadow: boxShadow && (!border || theme.palette.mode === 'dark') ? shadow || theme.customShadows.z1 : 'inherit',
+                    boxShadow: boxShadow && (!border || theme.palette.mode === 'dark') ? textConvert || theme.customShadows.z1 : 'inherit',
                     ':hover': {
-                        boxShadow: boxShadow ? shadow || theme.customShadows.z1 : 'inherit'
+                        boxShadow: boxShadow ? textConvert || theme.customShadows.z1 : 'inherit'
                     },
                     '& pre': {
                         m: 0,
@@ -92,7 +92,7 @@ MainCard.propTypes = {
     divider: PropTypes.bool,
     elevation: PropTypes.number,
     secondary: PropTypes.node,
-    shadow: PropTypes.string,
+    textConvert: PropTypes.string,
     sx: PropTypes.object,
     title: PropTypes.string,
     codeHighlight: PropTypes.bool,

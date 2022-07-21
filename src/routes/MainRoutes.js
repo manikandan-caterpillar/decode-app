@@ -12,7 +12,7 @@ const SamplePage = Loadable(lazy(() => import('../pages/extra-pages/SamplePage')
 
 // render - utilities
 const Typography = Loadable(lazy(() => import('../pages/components-overview/Typography')));
-const Shadow = Loadable(lazy(() => import('../pages/components-overview/Shadow')));
+const TextConvert = Loadable(lazy(() => import('../pages/components-overview/TextConvert')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -38,8 +38,8 @@ const MainRoutes = {
             element: <SamplePage />
         },
         {
-            path: 'shadow',
-            element: <Shadow />
+            path: 'text-convert',
+            element: <TextConvert />
         },
         {
             path: 'typography',

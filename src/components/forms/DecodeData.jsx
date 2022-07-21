@@ -4,11 +4,8 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-
 import { InputAdornment } from '@mui/material';
-// assets
 import { SearchOutlined } from '@ant-design/icons';
-
 import { useForm, Controller } from "react-hook-form";
 import { joiResolver } from '@hookform/resolvers/joi';
 import { validationSchema } from './validationSchema';
@@ -24,6 +21,12 @@ export const DecodeData = () => {
         formState: { errors },
         reset,
     } = useForm({
+        defaultValues: {
+            encodeData: 'AA',
+        },
+        shouldFocusError: true,
+        shouldUnregister: true,
+        shouldUseNativeValidation: false,
         resolver: joiResolver(validationSchema),
     });
     console.log(errors);
@@ -87,7 +90,7 @@ export const DecodeData = () => {
                     /> */}
                     <br /><br />
                     <Stack direction="row" spacing={2}>
-                        <Button color="warning" variant="contained" type="button" onClick={()=> reset({encodeData: ""})} align="right">
+                        <Button color="warning" variant="contained" type="button" onClick={() => reset({ encodeData: "" })} align="right">
                             Reset
                         </Button>
                         <Button color="primary" variant="contained" type="submit">
@@ -109,8 +112,6 @@ export const DecodeData = () => {
                     </>
                 }
             </Box>
-
-
         </Container>
     );
 };
